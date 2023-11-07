@@ -1,7 +1,7 @@
-import LoginContainer from './containers/member/LoginContainer';
+import LifeCycle from './components/LifeCyle';
 
 const App = () => {
-  return <LoginContainer />;
+  return <LifeCycle />;
 };
 
 export default App;
