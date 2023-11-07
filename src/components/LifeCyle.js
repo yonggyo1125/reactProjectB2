@@ -17,7 +17,7 @@ class LifeCycle extends Component {
       <div>
         <div
           style={{
-            width: 300,
+            width: 310,
             height: 300,
             background: color,
           }}
