@@ -1,34 +1,32 @@
 import { useTranslation } from 'react-i18next';
-import { useState } from 'react';
 
-const LoginForm = () => {
-  const { t, i18n } = useTranslation();
-  const [language, setLanguage] = useState('한국어');
-
-  const handleLanguage = (e) => {
-    const el = e.currentTarget;
-    const lang = el.dataset.lang;
-    i18n.changeLanguage(lang);
-    setLanguage(lang === 'ko' ? '한국어' : 'English');
-  };
+const LoginForm = ({ onSubmit, onChange, form, error }) => {
+  const { t } = useTranslation();
 
   return (
     <>
       <h1>{t('로그인')}</h1>
-      <div>
-        {t('현재 언어')} : {language}
-      </div>
-      <form>
-        <input type="text" name="userId" placeholder={t('아이디')} />
-        <input type="password" name="userPw" placeholder={t('비밀번호')} />
+      <form onSubmit={onSubmit}>
+        <input
+          type="text"
+          name="email"
+          placeholder={t('이메일')}
+          onChange={onChange}
+          value={form.email}
+        />
+        {error.email && <div>{error.email}</div>}
+
+        <input
+          type="password"
+          name="password"
+          placeholder={t('비밀번호')}
+          onChange={onChange}
+          value={form.password}
+        />
+        {error.password && <div>{error.password}</div>}
+
         <button type="submit">{t('로그인')}</button>
       </form>
-      <button type="button" onClick={handleLanguage} data-lang="ko">
-        한국어
-      </button>
-      <button type="button" onClick={handleLanguage} data-lang="en">
-        English
-      </button>
     </>
   );
 };

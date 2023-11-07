@@ -1,25 +1,7 @@
-import LifeCycle from './components/LifeCyle';
-import ErrorBoundary from './components/ErrorBoundary';
-
-import { useState } from 'react';
+import LoginContainer from './containers/member/LoginContainer';
 
 const App = () => {
-  const [visible, setVisible] = useState(true);
-
-  const handleClick = () => {
-    setVisible(!visible);
-  };
-
-  return (
-    <>
-      <ErrorBoundary>
-        <LifeCycle color="orange" number={10} />
-        <button type="button" onClick={handleClick}>
-          Toggle
-        </button>
-      </ErrorBoundary>
-    </>
-  );
+  return <LoginContainer />;
 };
 
 export default App;
