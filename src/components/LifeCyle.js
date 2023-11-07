@@ -35,6 +35,7 @@ class LifeCycle extends Component {
     return true;
   }
   */
+  /*
   componentDidMount() {
     // 1번만 호출
     console.log('render() 호출 후에 DOM 구성 완료 시 호출 - componentDidMount');
@@ -59,7 +60,7 @@ class LifeCycle extends Component {
   componentWillUnmount() {
     console.log('componentWillUnmount()');
   }
-
+  */
   changeColor = (e) => {
     const color = e.currentTarget.value;
     this.setState({ ...this.state, color }); // color: color
@@ -67,6 +68,7 @@ class LifeCycle extends Component {
 
   render() {
     this.state.missing.value = 10;
+
     const { color, number } = this.state;
     return (
       <div>
