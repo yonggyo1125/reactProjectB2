@@ -13,7 +13,7 @@ const App = () => {
   return (
     <>
       <ErrorBoundary>
-        {visible && <LifeCycle color="orange" number={10} />}
+        <LifeCycle color="orange" number={10} />
         <button type="button" onClick={handleClick}>
           Toggle
         </button>
