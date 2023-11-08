@@ -1,7 +1,7 @@
-import LoginContainer from './containers/member/LoginContainer';
+import Posts from './components/Posts';
 
 const App = () => {
-  return <LoginContainer />;
+  return <Posts />;
 };
 
 export default App;
