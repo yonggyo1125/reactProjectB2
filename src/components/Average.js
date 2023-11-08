@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import React, { useState, useMemo, useCallback } from 'react';
 
 const getAverage = (numbers) => {
-  const total = numbers.reduce((a, b) => a + b);
+  console.log('평균 구하는 함수 호출...');
+  const total = numbers.reduce((a, b) => a + b, 0);
+  console.log(total, numbers.length);
   const avg = Math.round((total / numbers.length) * 10) / 10;
 
   return avg;
@@ -11,8 +13,13 @@ const Average = () => {
   const [list, setList] = useState([]);
   const [number, setNumber] = useState(0);
 
-  const handleChange = (e) => setNumber(e.currentTarget.value);
-  const handleClick = () => setList(list.concat(number));
+  const handleChange = useCallback((e) => setNumber(e.currentTarget.value), []); // 처음 마운트 될때 1번만 생성
+  const handleClick = useCallback(
+    () => setList(list.concat(Number(number))),
+    [list],
+  );
+
+  const avg = useMemo(() => getAverage(list), [list]);
 
   return (
     <>
@@ -25,9 +32,9 @@ const Average = () => {
           <li key={i}>{n}</li>
         ))}
       </ul>
-      <div>평균 : {getAverage(list)}</div>
+      <div>평균 : {avg}</div>
     </>
   );
 };
 
-export default Average;
+export default React.memo(Average);
