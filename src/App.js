@@ -1,7 +1,7 @@
-import Posts from './components/Posts';
+import Average from './components/Average';
 
 const App = () => {
-  return <Posts />;
+  return <Average />;
 };
 
 export default App;
