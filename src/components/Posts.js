@@ -11,9 +11,18 @@ const Posts = () => {
         setPosts(res.data);
       })
       .catch((err) => console.error(err));
+
+    return () => {
+      // 뒷정리 함수 -> 업데이트 전, 언마운트 전에 호출
+      console.log('뒷정리 함수 호출...');
+    };
   }, []);
 
-  return <></>;
+  return (
+    <ul>
+      {posts.length > 0 && posts.map((p) => <li key={p.id}>{p.title}</li>)}
+    </ul>
+  );
 };
 
 export default Posts;
