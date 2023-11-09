@@ -1,7 +1,12 @@
+import styles from '../styles/header.module.scss';
+import classNames from 'classnames';
+
 const Header = () => {
   return (
-    <div>
-      <button type="button">로그인</button>
+    <div className={styles.header}>
+      <button type="button" className={classNames('red', 'cls1', 'cls2')}>
+        로그인
+      </button>
       <button type="button">회원가입</button>
     </div>
   );
