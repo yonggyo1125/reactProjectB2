@@ -1,32 +1,16 @@
 import { useTranslation } from 'react-i18next';
-import styled, { css } from 'styled-components';
-
-const TitleStyle = styled.h1`
-  border-bottom: 2px solid #000;
-  font-size: 1.75rem;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-  color: ${(props) => props.color || 'black'};
-
-  ${(props) =>
-    props.theme === 'dark' &&
-    css`
-      background: #000;
-      color: #fff;
-    `}
-`;
+import { MainTitle } from '../../components/commons/TitleStyle';
+import { InputText } from '../../components/commons/InputStyle';
 
 const LoginForm = ({ onSubmit, onChange, form, error }) => {
   const { t } = useTranslation();
 
   return (
     <>
-      <TitleStyle color="orange" theme="dark">
-        {t('로그인')}
-      </TitleStyle>
+      <MainTitle>{t('로그인')}</MainTitle>
 
       <form onSubmit={onSubmit}>
-        <input
+        <InputText
           type="text"
           name="email"
           placeholder={t('이메일')}
@@ -35,7 +19,7 @@ const LoginForm = ({ onSubmit, onChange, form, error }) => {
         />
         {error.email && <div>{error.email}</div>}
 
-        <input
+        <InputText
           type="password"
           name="password"
           placeholder={t('비밀번호')}
