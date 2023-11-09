@@ -1,7 +1,7 @@
-import SassComponent from './components/SassComponent';
+import Header from './components/Header';
 
 const App = () => {
-  return <SassComponent />;
+  return <Header />;
 };
 
 export default App;
