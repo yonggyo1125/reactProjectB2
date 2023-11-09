@@ -1,7 +1,7 @@
-import Header from './components/Header';
+import LoginContainer from './containers/member/LoginContainer';
 
 const App = () => {
-  return <Header />;
+  return <LoginContainer />;
 };
 
 export default App;
