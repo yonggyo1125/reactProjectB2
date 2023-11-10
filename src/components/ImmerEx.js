@@ -1,10 +1,26 @@
 import { useState } from 'react';
+import { produce } from 'immer';
 
 const ImmerEx = () => {
   const [data, setData] = useState({
     data1: { a: 1, b: 2 },
     data2: { c: 3, d: 4 },
+    array: [10, 20, 30, 40],
   });
+
+  const handleClick = () => {
+    /*
+    setData({
+      data1: { ...data.data1, b: data.data1.b * 10 },
+      data2: { ...data.data2 },
+    });
+    */
+    setData(
+      produce((draft) => {
+        draft.data1.b = data.data1.b * 10;
+      }),
+    );
+  };
 
   return (
     <>
@@ -19,6 +35,11 @@ const ImmerEx = () => {
       <button type="button" onClick={handleClick}>
         bX10
       </button>
+      <ul>
+        {data.array.map((n, i) => (
+          <li key={i}>{n}</li>
+        ))}
+      </ul>
     </>
   );
 };
