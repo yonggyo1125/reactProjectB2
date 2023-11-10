@@ -22,6 +22,14 @@ const ImmerEx = () => {
     );
   };
 
+  const handleClick2 = () => {
+    setData(
+      produce((draft) => {
+        draft.array.push(50);
+      }),
+    );
+  };
+
   return (
     <>
       a: {data.data1.a}
@@ -40,6 +48,9 @@ const ImmerEx = () => {
           <li key={i}>{n}</li>
         ))}
       </ul>
+      <button type="button" onClick={handleClick2}>
+        +50
+      </button>
     </>
   );
 };
